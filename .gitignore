@@ -1,1 +1,37 @@
-.idea/
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Java
+*.class
+
+# Build
+/target/
+/build/
+
+# Maven
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.versionsBackup
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs & temp
+*.log
+*.tmp
+
+# Spring Boot devtools
+.spring-boot-devtools.properties
+
+# Test reports
+test-output/
+surefire-reports/
+jacoco.exec
+
