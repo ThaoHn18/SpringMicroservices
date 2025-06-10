@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>thaohn</groupId>
-	<artifactId>accountservice</artifactId>
+	<artifactId>statisticservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>accountservice</name>
-	<description>Account project for Spring Boot</description>
+	<name>statisticservice</name>
+	<description>Statisticservice project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
