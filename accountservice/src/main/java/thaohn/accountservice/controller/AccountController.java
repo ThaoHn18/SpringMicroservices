@@ -39,18 +39,22 @@ public class AccountController {
 
     @GetMapping("/account/{id}")
     public ResponseEntity<AccountDTO> get(@PathVariable Long id) {
+        statisticService.addStatistic(new StatisticDTO("Get all accounts", new Date()));
         return Optional.ofNullable(accountService.getOne(id))
                 .map(dto -> new ResponseEntity<>(dto, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/account/{id}")
+
     public void delete(@PathVariable Long id) {
+        statisticService.addStatistic(new StatisticDTO("Delete account id " + id, new Date()));
         accountService.delete(id);
     }
 
     @PutMapping("/account")
     public void update(@RequestBody AccountDTO accountDTO) {
+        statisticService.addStatistic(new StatisticDTO("Update account: " + accountDTO.getUsername(), new Date()));
         accountService.update(accountDTO);
     }
 }
