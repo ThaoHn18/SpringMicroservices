@@ -11,7 +11,7 @@ import thaohn.statisticservice.service.StatisticService;
 import java.util.List;
 
 @RestController
-@RequestMapping("statistic")
+@RequestMapping("/statistic")
 @Slf4j
 public class StatisticController {
     Logger logger = LoggerFactory.getLogger(StatisticController.class);

@@ -8,9 +8,8 @@ import thaohn.accountservice.model.StatisticDTO;
 
 @FeignClient(name = "statistic-service", url = "http://localhost:9099")
 public interface StatisticService {
-    @PostMapping("/statistic")
-    void addStatistic(@RequestBody StatisticDTO statisticDTO);
+    @PostMapping(value = "/statistic")
+    StatisticDTO addStatistic(@RequestBody StatisticDTO statisticDTO);
 }
-
 
 
