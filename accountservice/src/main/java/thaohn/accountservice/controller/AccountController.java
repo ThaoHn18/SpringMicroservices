@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import thaohn.accountservice.client.NotificationService;
 import thaohn.accountservice.client.StatisticService;
 import thaohn.accountservice.model.AccountDTO;
+import thaohn.accountservice.model.MessageDTO;
 import thaohn.accountservice.model.StatisticDTO;
 import thaohn.accountservice.service.AccountService;
 
@@ -24,11 +26,26 @@ public class AccountController {
     @Autowired
     private StatisticService statisticService;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @PostMapping("/account")
     @Operation(summary = "Add user", description = "Create new user")
     public AccountDTO addAccount(@RequestBody AccountDTO accountDTO) {
+        // tao account
         accountService.add(accountDTO);
+        // ghi log
         statisticService.addStatistic(new StatisticDTO("Account " + accountDTO.getUsername() + " is created", new Date()));
+        // gui mail
+        MessageDTO messageDTO  = new MessageDTO();
+        messageDTO.setFrom("thaohn.developer@gmail.com");
+        messageDTO.setTo(accountDTO.getUsername());//username is email
+        messageDTO.setToName(accountDTO.getUsername());
+        messageDTO.setSubject("Welcome to ThaoHN.com");
+        messageDTO.setContent("Hoang ngoc thao test gui mail");
+
+        notificationService.sendNotification(messageDTO);
+
         return accountDTO;
     }
 
