@@ -20,7 +20,16 @@ public class StatisticController {
 
     @PostMapping()
     public StatisticDTO addStatistic(@RequestBody StatisticDTO statisticDTO) {
-        logger.info("addStatistic");
+         logger.info("addStatistic");
+//        try {
+//            Thread.sleep(1000);
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
+
         statisticService.add(statisticDTO);
         return statisticDTO;
     }
